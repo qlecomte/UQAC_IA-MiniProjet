@@ -81,6 +81,8 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
                                         script->GetDouble("Bot_AimPersistance"));
 
   m_pSensoryMem = new Raven_SensoryMemory(this, script->GetDouble("Bot_MemorySpan"));
+
+  InitializeFuzzyModule();
 }
 
 //-------------------------------- dtor ---------------------------------------
@@ -384,7 +386,82 @@ void Raven_Bot::ChangeWeapon(unsigned int type)
 //-----------------------------------------------------------------------------
 void Raven_Bot::FireWeapon(Vector2D pos)
 {
-  m_pWeaponSys->ShootAt(pos);
+	double DistanceToTarget = Vec2DDistance(Pos(), GetTargetBot()->Pos());
+	double VelocityTarget = Vec2DLength(GetTargetBot()->Velocity());
+	double stayVisible = m_pSensoryMem->GetTimeOpponentHasBeenVisible(GetTargetBot());
+
+	m_FuzzyModule.Fuzzify("DistToTarget", DistanceToTarget);
+	m_FuzzyModule.Fuzzify("Velocity", VelocityTarget);
+	m_FuzzyModule.Fuzzify("PeriodVisible", stayVisible);
+
+	double deviation = m_FuzzyModule.DeFuzzify("DeviationShot", FuzzyModule::max_av);
+	Vector2D vDeviation = Vec2DNormalize(GetTargetBot()->Velocity()) * deviation;
+
+	m_pWeaponSys->ShootAt(pos + vDeviation);
+}
+
+void Raven_Bot::InitializeFuzzyModule(){
+
+	FuzzyVariable& DistToTarget = m_FuzzyModule.CreateFLV("DistToTarget");
+	FzSet& Target_Close = DistToTarget.AddLeftShoulderSet("Target_Close", 0, 40, 80);
+	FzSet& Target_Medium = DistToTarget.AddLeftShoulderSet("Target_Medium", 40, 80, 250);
+	FzSet& Target_Far = DistToTarget.AddLeftShoulderSet("Target_Far", 80, 250, 1000);
+
+	FuzzyVariable& Velocity = m_FuzzyModule.CreateFLV("Velocity");
+	FzSet& Velocity_Slow = Velocity.AddRightShoulderSet("Velocity_Slow", 0, 25, 50);
+	FzSet& Velocity_Medium = Velocity.AddRightShoulderSet("Velocity_Medium", 25, 50, 75);
+	FzSet& Velocity_Fast = Velocity.AddRightShoulderSet("Velocity_Fast", 50, 75, 100);
+
+	FuzzyVariable& PeriodVisible = m_FuzzyModule.CreateFLV("PeriodVisible");
+	FzSet& Period_Short = PeriodVisible.AddLeftShoulderSet("Period_Short", 0, 250, 400);
+	FzSet& Period_Medium = PeriodVisible.AddTriangularSet("Period_Medium", 250, 400, 800);
+	FzSet& Period_Long = PeriodVisible.AddRightShoulderSet("Period_Long", 400, 800, 2000);
+
+	FuzzyVariable& DeviationShot = m_FuzzyModule.CreateFLV("DeviationShot");
+	FzSet& Deviation_No = PeriodVisible.AddSingletonSet("Deviation_No", 0, 0, 0);
+	FzSet& Deviation_Little = PeriodVisible.AddLeftShoulderSet("Deviation_Little", 0, 20, 30);
+	FzSet& Deviation_Medium = PeriodVisible.AddTriangularSet("Deviation_Medium", 20, 30, 50);
+	FzSet& Deviation_Important = PeriodVisible.AddRightShoulderSet("Deviation_Important", 30, 50, 100);
+
+
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Slow, Period_Short), Deviation_No);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Slow, Period_Medium), Deviation_No);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Slow, Period_Long), Deviation_No);
+
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Medium, Period_Short), Deviation_Little);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Medium, Period_Medium), Deviation_Little);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Medium, Period_Long), Deviation_No);
+
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Fast, Period_Short), Deviation_Medium);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Fast, Period_Medium), Deviation_Medium);
+	m_FuzzyModule.AddRule(FzAND(Target_Close, Velocity_Fast, Period_Long), Deviation_Little);
+	
+	
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Slow, Period_Short), Deviation_No);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Slow, Period_Medium), Deviation_No);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Slow, Period_Long), Deviation_No);
+
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Medium, Period_Short), Deviation_Medium);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Medium, Period_Medium), Deviation_Little);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Medium, Period_Long), Deviation_Little);
+
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Fast, Period_Short), Deviation_Important);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Fast, Period_Medium), Deviation_Important);
+	m_FuzzyModule.AddRule(FzAND(Target_Medium, Velocity_Fast, Period_Long), Deviation_Important);
+
+
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Slow, Period_Short), Deviation_Little);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Slow, Period_Medium), Deviation_Little);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Slow, Period_Long), Deviation_Little);
+
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Medium, Period_Short), Deviation_Medium);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Medium, Period_Medium), Deviation_Medium);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Medium, Period_Long), Deviation_Little);
+
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Fast, Period_Short), Deviation_Important);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Fast, Period_Medium), Deviation_Important);
+	m_FuzzyModule.AddRule(FzAND(Target_Far, Velocity_Fast, Period_Long), Deviation_Important);
+
 }
 
 //----------------- CalculateExpectedTimeToReachPosition ----------------------
@@ -577,3 +654,4 @@ void Raven_Bot::IncreaseHealth(unsigned int val)
   m_iHealth+=val; 
   Clamp(m_iHealth, 0, m_iMaxHealth);
 }
+
