@@ -212,10 +212,16 @@ public:
   Raven_WeaponSystem* const          GetWeaponSys()const{return m_pWeaponSys;}
   Raven_SensoryMemory* const         GetSensoryMem()const{return m_pSensoryMem;}
 
+  // Fuzzy Module
 private:
   FuzzyModule   m_FuzzyModule;
-  void     InitializeFuzzyModule();
+  void			InitializeFuzzyModule();
 
+  // Team
+private:
+	int			team;
+public:
+	int const	GetTeam()const{ return team; }
 
 };
 

@@ -82,7 +82,11 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
 
   m_pSensoryMem = new Raven_SensoryMemory(this, script->GetDouble("Bot_MemorySpan"));
 
+  
   InitializeFuzzyModule();
+
+  team = RandInt(1, script->GetInt("Bot_Teams"));
+
 }
 
 //-------------------------------- dtor ---------------------------------------

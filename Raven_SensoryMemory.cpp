@@ -168,10 +168,10 @@ Raven_SensoryMemory::GetListOfRecentlySensedOpponents()const
 bool Raven_SensoryMemory::isOpponentShootable(Raven_Bot* pOpponent)const
 {
   MemoryMap::const_iterator it = m_MemoryMap.find(pOpponent);
- 
   if (it != m_MemoryMap.end())
   {
-    return it->second.bShootable;
+	  if (m_pOwner->GetTeam() != it->first->GetTeam())
+		return it->second.bShootable;
   }
 
   return false;
