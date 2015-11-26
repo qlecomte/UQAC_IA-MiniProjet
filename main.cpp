@@ -436,14 +436,14 @@ int WINAPI WinMain (HINSTANCE hInstance,
                     LPSTR     szCmdLine, 
                     int       iCmdShow)
 {
-  MSG msg;
-  //handle to our window
+	MSG msg;
+	//handle to our window
 	HWND						hWnd;
 
- //the window class structure
+	 //the window class structure
 	WNDCLASSEX     winclass;
 
-  // first fill in the window class stucture
+	// first fill in the window class stucture
 	winclass.cbSize        = sizeof(WNDCLASSEX);
 	winclass.style         = CS_HREDRAW | CS_VREDRAW;
   winclass.lpfnWndProc   = WindowProc;

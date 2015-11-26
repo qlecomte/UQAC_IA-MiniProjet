@@ -116,6 +116,7 @@ void Raven_Bot::Spawn(Vector2D pos)
     SetPos(pos);
     m_pWeaponSys->Initialize();
     RestoreHealthToMaximum();
+	
 }
 
 //-------------------------------- Update -------------------------------------
