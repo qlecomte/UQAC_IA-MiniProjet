@@ -179,9 +179,10 @@ void Raven_WeaponSystem::TakeAimAndShoot()const
   //very recently gone out of view (this latter condition is to ensure the 
   //weapon is aimed at the target even if it temporarily dodges behind a wall
   //or other cover)
-  if (m_pOwner->GetTargetSys()->isTargetShootable() ||
-      (m_pOwner->GetTargetSys()->GetTimeTargetHasBeenOutOfView() < 
-       m_dAimPersistance) )
+  if ( (m_pOwner->GetTargetSys()->isTargetShootable() ||
+		m_pOwner->GetTargetSys()->GetTimeTargetHasBeenOutOfView() < m_dAimPersistance ) &&
+		m_pOwner->GetTeam() != m_pOwner->GetTargetBot()->GetTeam() // Vérifie que le bot visé appartient bien a une autre équipe
+	  )
   {
     //the position the weapon will be aimed at
     Vector2D AimingPos = m_pOwner->GetTargetBot()->Pos();

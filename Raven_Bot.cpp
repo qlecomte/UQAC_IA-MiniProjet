@@ -86,6 +86,7 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
   InitializeFuzzyModule();
 
   team = RandInt(1, script->GetInt("Bot_Teams"));
+  //team = 1;
 
 }
 
@@ -120,6 +121,8 @@ void Raven_Bot::Spawn(Vector2D pos)
     SetPos(pos);
     m_pWeaponSys->Initialize();
     RestoreHealthToMaximum();
+
+	debug_con << "Spawn Bot ID:" << ID() << ", team:" << team << "";
 	
 }
 

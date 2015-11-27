@@ -221,7 +221,7 @@ private:
 private:
 	int			team;
 public:
-	int const	GetTeam()const{ return team; }
+	int			GetTeam(){ return team; }
 
 };
 
