@@ -46,7 +46,8 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
                  m_iScore(0),
                  m_Status(spawning),
                  m_bPossessed(false),
-                 m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV")))
+                 m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV"))),
+				 m_iTeam(RandInt(1, script->GetInt("Bot_Teams")))
            
 {
   SetEntityType(type_bot);
@@ -85,9 +86,6 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
   
   InitializeFuzzyModule();
 
-  team = RandInt(1, script->GetInt("Bot_Teams"));
-  //team = 1;
-
 }
 
 //-------------------------------- dtor ---------------------------------------
@@ -122,7 +120,7 @@ void Raven_Bot::Spawn(Vector2D pos)
     m_pWeaponSys->Initialize();
     RestoreHealthToMaximum();
 
-	debug_con << "Spawn Bot ID:" << ID() << ", team:" << team << "";
+	debug_con << "Spawn Bot ID:" << ID() << ", team:" << m_iTeam << "";
 	
 }
 
@@ -169,7 +167,8 @@ void Raven_Bot::Update()
 
     //this method aims the bot's current weapon at the current target
     //and takes a shot if a shot is possible
-    m_pWeaponSys->TakeAimAndShoot();
+	if (GetTargetBot() != nullptr && GetTeam() != GetTargetBot()->GetTeam()) // Vérifie que le bot visé appartient bien a une autre équipe
+		m_pWeaponSys->TakeAimAndShoot();
   }
 }
 

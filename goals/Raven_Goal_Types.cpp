@@ -31,6 +31,8 @@ std::string GoalTypeToString::Convert(int gt)
 
     return "follow_path";
 
+  
+
   case goal_traverse_edge:
 
     return "traverse_edge";
@@ -82,6 +84,14 @@ std::string GoalTypeToString::Convert(int gt)
   case goal_say_phrase:
 
     return "say_phrase";
+
+  case goal_seekzigzag:
+
+	  return "seek_zigzag";
+
+  case goal_move_and_dodge:
+
+	  return "move_and_dodge";
 
   default:
 

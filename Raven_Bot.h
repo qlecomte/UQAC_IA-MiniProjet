@@ -219,9 +219,9 @@ private:
 
   // Team
 private:
-	int			team;
+	int			m_iTeam;
 public:
-	int			GetTeam(){ return team; }
+	int			GetTeam(){ return m_iTeam; }
 
 };
 

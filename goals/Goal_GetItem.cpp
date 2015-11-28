@@ -9,6 +9,7 @@
 #include "Goal_Wander.h"
 #include "Goal_FollowPath.h"
 #include "Goal_DodgeSideToSide.h"
+#include "Goal_MoveAndDodge.h"
 
 #include "Debug/DebugConsole.h"
 
@@ -63,10 +64,10 @@ int Goal_GetItem::Process()
 {
   ActivateIfInactive();
 
-  if (m_pOwner->GetTargetSys()->isTargetWithinFOV())
+  /*if (m_pOwner->GetTargetSys()->isTargetWithinFOV())
 	  if (m_SubGoals.front()->GetType() != goal_strafe){
 		  AddSubgoal(new Goal_DodgeSideToSide(m_pOwner));
-	  }
+	  }*/
 
   if (hasItemBeenStolen())
   {
@@ -98,7 +99,7 @@ bool Goal_GetItem::HandleMessage(const Telegram& msg)
       //clear any existing goals
       RemoveAllSubgoals();
 
-      AddSubgoal(new Goal_FollowPath(m_pOwner, m_pOwner->GetPathPlanner()->GetPath()));
+	  AddSubgoal(new Goal_MoveAndDodge(m_pOwner, m_pOwner->GetPathPlanner()->GetPath()));
 
       //get the pointer to the item
       m_pGiverTrigger = static_cast<Raven_Map::TriggerType*>(msg.ExtraInfo);

@@ -74,25 +74,78 @@ Creating a shotgun
 Creating a rocket_launcher
 maps/Raven_DM1.map loaded okay
 Spawn Bot ID:401, team:1
-Spawn Bot ID:402, team:2
-Spawn Bot ID:403, team:1
+Spawn Bot ID:402, team:1
+Spawn Bot ID:403, team:2
+Faire des Zig-zag
+Faire des Zig-zag
 BOT 401 IS STUCK!!
-BOT 402 IS STUCK!!
-BOT 401 IS STUCK!!
-BOT 402 IS STUCK!!
-Spawn Bot ID:502, team:1
-BOT 401 IS STUCK!!
-BOT 402 IS STUCK!!
-Spawn Bot ID:503, team:2
-BOT 502 IS STUCK!!
-Spawn Bot ID:506, team:1
-Spawn Bot ID:511, team:2
-Spawn Bot ID:516, team:1
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Spawn Bot ID:403, team:2
+Faire des Zig-zag
+Faire des Zig-zag
+Spawn Bot ID:402, team:1
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
+Faire des Zig-zag
 deleting raven bot (id = 401)
 deleting raven bot (id = 402)
 deleting raven bot (id = 403)
-deleting raven bot (id = 502)
-deleting raven bot (id = 503)
-deleting raven bot (id = 506)
-deleting raven bot (id = 511)
-deleting raven bot (id = 516)
