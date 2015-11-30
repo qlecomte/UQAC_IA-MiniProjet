@@ -167,8 +167,8 @@ void Raven_Bot::Update()
 
     //this method aims the bot's current weapon at the current target
     //and takes a shot if a shot is possible
-	if (GetTargetBot() != nullptr && GetTeam() != GetTargetBot()->GetTeam()) // Vérifie que le bot visé appartient bien a une autre équipe
-		m_pWeaponSys->TakeAimAndShoot();
+	//if (GetTargetBot() != nullptr && GetTeam() != GetTargetBot()->GetTeam()) // Vérifie que le bot visé appartient bien a une autre équipe
+	m_pWeaponSys->TakeAimAndShoot();
   }
 }
 

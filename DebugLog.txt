@@ -75,77 +75,7 @@ Creating a rocket_launcher
 maps/Raven_DM1.map loaded okay
 Spawn Bot ID:401, team:1
 Spawn Bot ID:402, team:1
-Spawn Bot ID:403, team:2
-Faire des Zig-zag
-Faire des Zig-zag
-BOT 401 IS STUCK!!
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Spawn Bot ID:403, team:2
-Faire des Zig-zag
-Faire des Zig-zag
-Spawn Bot ID:402, team:1
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
-Faire des Zig-zag
+Spawn Bot ID:403, team:1
 deleting raven bot (id = 401)
 deleting raven bot (id = 402)
 deleting raven bot (id = 403)
