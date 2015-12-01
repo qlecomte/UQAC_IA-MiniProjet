@@ -167,8 +167,8 @@ void Raven_Bot::Update()
 
     //this method aims the bot's current weapon at the current target
     //and takes a shot if a shot is possible
-	if (GetTargetBot() != nullptr && GetTeam() != GetTargetBot()->GetTeam()) // Vérifie que le bot visé appartient bien a une autre équipe
-		m_pWeaponSys->TakeAimAndShoot();
+	//if (GetTargetBot() != nullptr && GetTeam() != GetTargetBot()->GetTeam()) // Vérifie que le bot visé appartient bien a une autre équipe
+	m_pWeaponSys->TakeAimAndShoot();
   }
 }
 
@@ -602,7 +602,9 @@ void Raven_Bot::Render()
   }
 
   gdi->TransparentText();
-  gdi->TextColor(0,255,0);
+  if (GetTeam() == 1)
+	gdi->TextColor(0,255,0);
+  else gdi->TextColor(0, 0, 255);
 
   if (UserOptions->m_bShowBotIDs)
   {
