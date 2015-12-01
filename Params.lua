@@ -80,6 +80,7 @@ Bot_HealthGoalTweaker     = 1.0
 Bot_ShotgunGoalTweaker    = 1.0
 Bot_RailgunGoalTweaker    = 1.0
 Bot_RocketLauncherTweaker = 1.0
+Bot_GrenadeTweaker = 1.0
 Bot_AggroGoalTweaker      = 1.0
 
 

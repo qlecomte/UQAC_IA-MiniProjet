@@ -19,6 +19,7 @@ RocketLauncher::RocketLauncher(Raven_Bot*   owner):
                                    script->GetDouble("Rocket_MaxSpeed"),
                                    owner)
 {
+	int test = script->GetInt("RocketLauncher_MaxRoundsCarried");
     //setup the vertex buffer
   const int NumWeaponVerts = 8;
   const Vector2D weapon[NumWeaponVerts] = {Vector2D(0, -3),

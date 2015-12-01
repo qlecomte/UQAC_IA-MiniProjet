@@ -330,7 +330,7 @@ void Raven_Game::AddGrenade(Raven_Bot* shooter, Vector2D target)
 	m_Projectiles.push_back(rp);
 
 #ifdef LOG_CREATIONAL_STUFF
-	debug_con << "Adding a rocket " << rp->ID() << " at pos " << rp->Pos() << "";
+	debug_con << "Adding a grenade " << rp->ID() << " at pos " << rp->Pos() << "";
 #endif
 }
 
@@ -535,6 +535,10 @@ void Raven_Game::ChangeWeaponOfPossessedBot(unsigned int weapon)const
     case type_rail_gun:
       
       PossessedBot()->ChangeWeapon(type_rail_gun); return;
+
+	case type_grenade:
+		PossessedBot()->ChangeWeapon(type_grenade); return;
+
 
     }
   }

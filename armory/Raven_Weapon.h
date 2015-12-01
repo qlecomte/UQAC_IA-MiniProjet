@@ -95,6 +95,10 @@ public:
                                  m_dMaxProjectileSpeed(ProjectileSpeed)
   {  
     m_dTimeNextAvailable = Clock->GetCurrentTime();
+	if (TypeOfGun == 13)
+	{
+		int test = DefaultNumRounds;
+	}
   }
 
   virtual ~Raven_Weapon(){}

@@ -11,7 +11,7 @@
 //-----------------------------------------------------------------------------
 GrenadeLauncher::GrenadeLauncher(Raven_Bot*   owner) :
 
-Raven_Weapon(type_rocket_launcher,
+Raven_Weapon(type_grenade,
 script->GetInt("GrenadeLauncher_DefaultRounds"),
 script->GetInt("GrenadeLauncher_MaxRoundsCarried"),
 script->GetDouble("GrenadeLauncher_FiringFreq"),

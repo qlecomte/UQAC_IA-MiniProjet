@@ -51,11 +51,15 @@ std::string GoalTypeToString::Convert(int gt)
 
   case goal_get_railgun:
 
-    return "get_railgun";
+	  return "get_railgun";
 
   case goal_get_rocket_launcher:
 
-    return "get_rocket_launcher";
+	  return "get_rocket_launcher";
+
+  case goal_get_grenade:
+
+	  return "get_grenade";
 
   case goal_wander:
 
