@@ -63,8 +63,8 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../Common;D:\code\AI Source\LATEST vc6-vc10\VS2010\Common\lua-5.1.3\include;D:\code\AI Source\LATEST vc6-vc10\VS2010\Common;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\code\AI Source\LATEST vc6-vc10\VS2010\Common\lua-5.1.3;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../Common;..\Common\lua-5.1.3\include;D:\code\AI Source\LATEST vc6-vc10\VS2010\Common;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Common\lua-5.1.3;$(LibraryPath)</LibraryPath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='boundschecker|Win32'">../Common;D:\code\AI Source\LATEST vc6-vc10\VS2010\Common;$(IncludePath)</IncludePath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../Common;D:\code\AI Source\LATEST vc6-vc10\VS2010\Common;$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -213,6 +213,8 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="armory\Projectile_Grenade.cpp" />
+    <ClCompile Include="armory\Weapon_Grenade.cpp" />
     <ClCompile Include="goals\Goal_MoveAndDodge.cpp" />
     <ClCompile Include="goals\Goal_SeekZigzag.cpp" />
     <ClCompile Include="main.cpp">
@@ -532,6 +534,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="armory\Projectile_Grenade.h" />
+    <ClInclude Include="armory\Weapon_Grenade.h" />
     <ClInclude Include="goals\Goal_MoveAndDodge.h" />
     <ClInclude Include="goals\Goal_SeekZigzag.h" />
     <ClInclude Include="Raven_Bot.h" />

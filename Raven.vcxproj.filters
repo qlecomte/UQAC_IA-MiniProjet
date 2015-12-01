@@ -274,6 +274,12 @@
     <ClCompile Include="goals\Goal_SeekZigzag.cpp">
       <Filter>AI\goals\atomic</Filter>
     </ClCompile>
+    <ClCompile Include="armory\Weapon_Grenade.cpp">
+      <Filter>Game\weapons &amp; projectiles\weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="armory\Projectile_Grenade.cpp">
+      <Filter>Game\weapons &amp; projectiles\projectiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Raven_Bot.h">
@@ -617,6 +623,12 @@
     </ClInclude>
     <ClInclude Include="goals\Goal_SeekZigzag.h">
       <Filter>AI\goals\atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="armory\Weapon_Grenade.h">
+      <Filter>Game\weapons &amp; projectiles\weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="armory\Projectile_Grenade.h">
+      <Filter>Game\weapons &amp; projectiles\projectiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

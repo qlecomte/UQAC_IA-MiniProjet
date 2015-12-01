@@ -112,7 +112,14 @@ void Trigger_WeaponGiver::Render()
         }
       
         break;
-
+		case type_grenade:
+		{
+			gdi->BluePen();
+			gdi->BlueBrush();
+			gdi->Circle(Pos(), 3);
+			gdi->ThickBluePen();
+			gdi->Circle(Pos(), 3);
+		}
     }//end switch
   }
 }
