@@ -46,9 +46,7 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
                  m_iScore(0),
                  m_Status(spawning),
                  m_bPossessed(false),
-                 m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV"))),
-				 m_iTeam(RandInt(1, script->GetInt("Bot_Teams")))
-           
+                 m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV")))			      
 {
   SetEntityType(type_bot);
 
@@ -85,6 +83,8 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
 
   
   InitializeFuzzyModule();
+
+  m_iTeam = RandInt(1, script->GetInt("Bot_Teams"));
 
 }
 

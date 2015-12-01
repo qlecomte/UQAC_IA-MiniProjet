@@ -22,8 +22,6 @@ void Goal_MoveAndDodge::Activate()
 
 	if (m_pOwner->GetTargetSys()->isTargetWithinFOV()){
 		// Faire des zig-zag
-		debug_con << "Faire des Zig-zag" << "";
-
 		AddSubgoal(new Goal_SeekZigzag(m_pOwner));
 
 	}

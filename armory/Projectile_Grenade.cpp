@@ -52,9 +52,6 @@ void Grenade::Update()
     m_vVelocity.Truncate(m_dMaxSpeed);
 
 	m_time++;
-#ifdef LOG_CREATIONAL_STUFF
-	debug_con << m_time << "/" << m_duration << "=>" << m_vVelocity.Length();
-#endif
 
     //update the position
     m_vPosition += m_vVelocity;
