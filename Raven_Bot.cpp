@@ -84,7 +84,9 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
   
   InitializeFuzzyModule();
 
-  m_iTeam = RandInt(1, script->GetInt("Bot_Teams"));
+
+  
+  m_iTeam = m_pWorld->GetNumBots() % script->GetInt("Bot_Teams");
 
 }
 
