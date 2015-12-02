@@ -84,8 +84,8 @@ Raven_Bot::Raven_Bot(Raven_Game* world,Vector2D pos):
   
   InitializeFuzzyModule();
 
-
-  
+  // Calcul du modulo du nombre de bots sur le nombre d'équipe
+  // afin d'obtenir des équipes équilibrées.
   m_iTeam = m_pWorld->GetNumBots() % script->GetInt("Bot_Teams");
 
 }
